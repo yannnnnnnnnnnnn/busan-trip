@@ -1,0 +1,678 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>釜山6天5夜夏日之旅</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(135deg, #74b9ff 0%, #0984e3 50%, #6c5ce7 100%);
+            min-height: 100vh;
+            color: #2d3436;
+        }
+        
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+        
+        .header {
+            text-align: center;
+            background: rgba(255, 255, 255, 0.95);
+            padding: 30px;
+            border-radius: 20px;
+            margin-bottom: 30px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+            backdrop-filter: blur(10px);
+        }
+        
+        .header h1 {
+            color: #0984e3;
+            font-size: 2.5em;
+            margin-bottom: 10px;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.1);
+        }
+        
+        .header p {
+            color: #636e72;
+            font-size: 1.2em;
+        }
+        
+        .travel-info {
+            background: rgba(255, 255, 255, 0.9);
+            padding: 25px;
+            border-radius: 15px;
+            margin-bottom: 30px;
+            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.1);
+        }
+        
+        .travel-info h3 {
+            color: #e17055;
+            margin-bottom: 15px;
+            font-size: 1.3em;
+        }
+        
+        .info-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 20px;
+        }
+        
+        .info-item {
+            background: #f8f9fa;
+            padding: 15px;
+            border-radius: 10px;
+            border-left: 4px solid #74b9ff;
+        }
+        
+        .travel-tips {
+            background: linear-gradient(45deg, #fdcb6e, #e17055);
+            color: white;
+            padding: 25px;
+            border-radius: 15px;
+            margin-bottom: 30px;
+            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15);
+        }
+        
+        .travel-tips h3 {
+            margin-bottom: 15px;
+            font-size: 1.4em;
+        }
+        
+        .tips-list {
+            list-style: none;
+            padding: 0;
+        }
+        
+        .tips-list li {
+            background: rgba(255, 255, 255, 0.2);
+            margin: 10px 0;
+            padding: 12px;
+            border-radius: 8px;
+            backdrop-filter: blur(5px);
+        }
+        
+        .tabs {
+            display: flex;
+            justify-content: center;
+            margin-bottom: 30px;
+            flex-wrap: wrap;
+            gap: 10px;
+        }
+        
+        .tab {
+            background: rgba(255, 255, 255, 0.8);
+            border: none;
+            padding: 15px 25px;
+            border-radius: 25px;
+            cursor: pointer;
+            font-size: 1.1em;
+            font-weight: bold;
+            transition: all 0.3s ease;
+            color: #2d3436;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+        }
+        
+        .tab:hover {
+            background: rgba(116, 185, 255, 0.8);
+            color: white;
+            transform: translateY(-2px);
+            box-shadow: 0 6px 20px rgba(0, 0, 0, 0.15);
+        }
+        
+        .tab.active {
+            background: linear-gradient(45deg, #74b9ff, #0984e3);
+            color: white;
+            transform: translateY(-2px);
+            box-shadow: 0 6px 20px rgba(116, 185, 255, 0.4);
+        }
+        
+        .tab-content {
+            display: none;
+            background: rgba(255, 255, 255, 0.95);
+            padding: 30px;
+            border-radius: 20px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+            backdrop-filter: blur(10px);
+        }
+        
+        .tab-content.active {
+            display: block;
+            animation: fadeIn 0.5s ease-in-out;
+        }
+        
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        
+        .day-title {
+            color: #0984e3;
+            font-size: 2em;
+            margin-bottom: 20px;
+            text-align: center;
+            text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.1);
+        }
+        
+        .attraction {
+            background: linear-gradient(135deg, #f8f9fa, #e9ecef);
+            margin: 20px 0;
+            padding: 25px;
+            border-radius: 15px;
+            border-left: 5px solid #74b9ff;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.08);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+        
+        .attraction:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.12);
+        }
+        
+        .attraction h4 {
+            color: #e17055;
+            font-size: 1.3em;
+            margin-bottom: 10px;
+        }
+        
+        .attraction p {
+            line-height: 1.6;
+            margin-bottom: 15px;
+            color: #636e72;
+        }
+        
+        .links {
+            display: flex;
+            gap: 15px;
+            flex-wrap: wrap;
+        }
+        
+        .link-btn {
+            background: linear-gradient(45deg, #00b894, #55efc4);
+            color: white;
+            padding: 10px 20px;
+            text-decoration: none;
+            border-radius: 20px;
+            font-weight: bold;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 15px rgba(0, 184, 148, 0.3);
+        }
+        
+        .link-btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 6px 20px rgba(0, 184, 148, 0.4);
+        }
+        
+        .naver-btn {
+            background: linear-gradient(45deg, #00d2d3, #54a0ff);
+        }
+        
+        .info-btn {
+            background: linear-gradient(45deg, #fd79a8, #fdcb6e);
+        }
+        
+        .schedule {
+            background: linear-gradient(45deg, #a29bfe, #6c5ce7);
+            color: white;
+            padding: 20px;
+            border-radius: 15px;
+            margin-bottom: 20px;
+            box-shadow: 0 8px 25px rgba(108, 92, 231, 0.3);
+        }
+        
+        .schedule h4 {
+            margin-bottom: 15px;
+            font-size: 1.2em;
+        }
+        
+        .route {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+            align-items: center;
+        }
+        
+        .route-item {
+            background: rgba(255, 255, 255, 0.2);
+            padding: 8px 15px;
+            border-radius: 20px;
+            font-size: 0.9em;
+            backdrop-filter: blur(5px);
+        }
+        
+        .arrow {
+            color: #fdcb6e;
+            font-weight: bold;
+        }
+        
+        @media (max-width: 768px) {
+            .container {
+                padding: 10px;
+            }
+            
+            .header h1 {
+                font-size: 2em;
+            }
+            
+            .tab {
+                padding: 12px 20px;
+                font-size: 1em;
+            }
+            
+            .tab-content {
+                padding: 20px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <h1>🌊 釜山夏日之旅 🌊</h1>
+            <p>6天5夜精彩行程 • 2025年7月9日-14日</p>
+        </div>
+        
+        <div class="travel-info">
+            <h3>🚀 旅行基本資訊</h3>
+            <div class="info-grid">
+                <div class="info-item">
+                    <strong>住宿：</strong><br>
+                    <a href="https://www.booking.com/Share-78vbnf" target="_blank" style="color: #0984e3;">南浦洞旅館 (Booking.com)</a>
+                </div>
+                <div class="info-item">
+                    <strong>去程航班：</strong><br>
+                    7/9 濟州航空 7C6154<br>
+                    桃園機場 02:50 → 釜山金海機場
+                </div>
+                <div class="info-item">
+                    <strong>回程航班：</strong><br>
+                    7/14 大韓航空 KE2249<br>
+                    釜山金海機場 09:00 → 桃園機場
+                </div>
+            </div>
+        </div>
+        
+        <div class="travel-tips">
+            <h3>💡 旅遊小貼士</h3>
+            <ul class="tips-list">
+                <li>💰 換錢所營業時間通常09:00開始，24小時可用money box換錢機</li>
+                <li>🚇 購買釜山通行證(Visit Busan Pass)可節省交通和景點費用</li>
+                <li>🌤️ 膠囊列車和天空步道可能因天氣暫停，建議提早確認</li>
+                <li>🎫 熱門景點建議提前購票，避免現場排隊</li>
+                <li>📱 下載Naver Map app，含韓文地址更容易找路</li>
+                <li>🦀 海鮮料理建議中午前用餐，新鮮度較佳</li>
+                <li>🛍️ 大型超市和百貨公司通常10:00-22:00營業</li>
+            </ul>
+        </div>
+        
+        <div class="tabs">
+            <button class="tab active" onclick="showTab(event, 'day1')">Day 1</button>
+            <button class="tab" onclick="showTab(event, 'day2')">Day 2</button>
+            <button class="tab" onclick="showTab(event, 'day3')">Day 3</button>
+            <button class="tab" onclick="showTab(event, 'day4')">Day 4</button>
+            <button class="tab" onclick="showTab(event, 'day5')">Day 5</button>
+            <button class="tab" onclick="showTab(event, 'day6')">Day 6</button>
+        </div>
+        
+        <div id="day1" class="tab-content active">
+            <h2 class="day-title">Day 1 - 7/9 (三) 抵達釜山</h2>
+            
+            <div class="schedule">
+                <h4>📅 今日行程路線</h4>
+                <div class="route">
+                    <span class="route-item">桃園機場</span>
+                    <span class="arrow">→</span>
+                    <span class="route-item">釜山金海機場</span>
+                    <span class="arrow">→</span>
+                    <span class="route-item">西面站</span>
+                    <span class="arrow">→</span>
+                    <span class="route-item">BIFC展望台</span>
+                    <span class="arrow">→</span>
+                    <span class="route-item">南浦洞</span>
+                </div>
+            </div>
+            
+            <div class="attraction">
+                <h4>🍜 西面湯飯一條街</h4>
+                <p>釜山最著名的豬肉湯飯聚集地，推薦松亭三代豬肉湯飯或秀英本家，濃郁的白湯搭配軟嫩豬肉，是釜山必吃美食。</p>
+                <div class="links">
+                    <a href="https://map.naver.com/v5/search/서면돼지국밥거리" target="_blank" class="link-btn naver-btn">📍 Naver地圖</a>
+                </div>
+            </div>
+            
+            <div class="attraction">
+                <h4>🛍️ 西面站商圈</h4>
+                <p>釜山最熱鬧的購物區域，包含西面地下街、西面青春街、田浦咖啡街，各種時尚店舖和美食應有盡有。</p>
+                <div class="links">
+                    <a href="https://map.naver.com/v5/search/서면역" target="_blank" class="link-btn naver-btn">📍 Naver地圖</a>
+                </div>
+            </div>
+            
+            <div class="attraction">
+                <h4>🌃 釜山國際金融中心(BIFC)展望台</h4>
+                <p>位於38樓的免費展望台，可360度俯瞰釜山市區美景，是欣賞釜山全景的最佳地點之一。</p>
+                <div class="links">
+                    <a href="https://map.naver.com/v5/search/부산국제금융센터" target="_blank" class="link-btn naver-btn">📍 Naver地圖</a>
+                </div>
+            </div>
+            
+            <div class="attraction">
+                <h4>🍗 60계치킨 서면점</h4>
+                <p>釜山知名炸雞店，酥脆外皮搭配多汁雞肉，是當地人推薦的宵夜選擇。</p>
+                <div class="links">
+                    <a href="https://map.naver.com/v5/search/60계치킨서면점" target="_blank" class="link-btn naver-btn">📍 Naver地圖</a>
+                </div>
+            </div>
+        </div>
+        
+        <div id="day2" class="tab-content">
+            <h2 class="day-title">Day 2 - 7/10 (四) 海雲台藍線公園</h2>
+            
+            <div class="schedule">
+                <h4>📅 今日行程路線</h4>
+                <div class="route">
+                    <span class="route-item">海雲台站</span>
+                    <span class="arrow">→</span>
+                    <span class="route-item">膠囊列車</span>
+                    <span class="arrow">→</span>
+                    <span class="route-item">青沙浦</span>
+                    <span class="arrow">→</span>
+                    <span class="route-item">松亭</span>
+                    <span class="arrow">→</span>
+                    <span class="route-item">廣安里</span>
+                </div>
+            </div>
+            
+            <div class="attraction">
+                <h4>🚠 海雲台藍線公園膠囊列車</h4>
+                <p>釜山最熱門的海岸觀光列車，從尾浦站到青沙浦站，沿途可欣賞絕美海景。建議提前購票避免排隊。</p>
+                <div class="links">
+                    <a href="https://map.naver.com/v5/search/해운대블루라인파크" target="_blank" class="link-btn naver-btn">📍 Naver地圖</a>
+                    <a href="https://www.kkday.com/zh-hk/product/26858" target="_blank" class="link-btn info-btn">🎫 預訂門票</a>
+                </div>
+            </div>
+            
+            <div class="attraction">
+                <h4>📸 青沙浦燈塔 & 天空步道</h4>
+                <p>韓版灌籃高手平交道拍照聖地，青沙浦燈塔周邊有美麗的海岸步道和天空步道，是絕佳的拍照景點。</p>
+                <div class="links">
+                    <a href="https://map.naver.com/v5/search/청사포등대" target="_blank" class="link-btn naver-btn">📍 Naver地圖</a>
+                </div>
+            </div>
+            
+            <div class="attraction">
+                <h4>🏔️ Skyline Luge</h4>
+                <p>刺激的無動力滑車體驗，從山頂滑下可欣賞海景，適合喜愛刺激活動的旅客。</p>
+                <div class="links">
+                    <a href="https://map.naver.com/v5/search/스카이라인루지부산" target="_blank" class="link-btn naver-btn">📍 Naver地圖</a>
+                </div>
+            </div>
+            
+            <div class="attraction">
+                <h4>🌉 廣安里海灘 & The Bay101</h4>
+                <p>釜山最美的海灘之一，夜晚的廣安大橋燈光秀非常壯觀。The Bay101是知名的海景咖啡廳。</p>
+                <div class="links">
+                    <a href="https://map.naver.com/v5/search/광안리해수욕장" target="_blank" class="link-btn naver-btn">📍 Naver地圖</a>
+                    <a href="https://map.naver.com/v5/search/더베이101" target="_blank" class="link-btn naver-btn">📍 The Bay101</a>
+                </div>
+            </div>
+        </div>
+        
+        <div id="day3" class="tab-content">
+            <h2 class="day-title">Day 3 - 7/11 (五) 甘川洞 & 松島</h2>
+            
+            <div class="schedule">
+                <h4>📅 今日行程路線</h4>
+                <div class="route">
+                    <span class="route-item">札嘎其市場</span>
+                    <span class="arrow">→</span>
+                    <span class="route-item">甘川洞文化村</span>
+                    <span class="arrow">→</span>
+                    <span class="route-item">松島纜車</span>
+                    <span class="arrow">→</span>
+                    <span class="route-item">富平夜市</span>
+                </div>
+            </div>
+            
+            <div class="attraction">
+                <h4>🏘️ 甘川洞文化村</h4>
+                <p>釜山必訪的彩色山城，被稱為「韓國的馬丘比丘」。五彩繽紛的小房子圍繞山坡，是絕佳的拍照景點，也是韓國人熱愛的國內旅遊勝地。</p>
+                <div class="links">
+                    <a href="https://map.naver.com/v5/search/감천문화마을" target="_blank" class="link-btn naver-btn">📍 Naver地圖</a>
+                    <a href="https://mimihan.tw/busan-gamcheondong/" target="_blank" class="link-btn info-btn">📖 詳細介紹</a>
+                </div>
+            </div>
+            
+            <div class="attraction">
+                <h4>🚠 松島海上纜車</h4>
+                <p>韓國第一條海上纜車，也是目前最長的跨海纜車，在高達86公尺的高空一覽整個松島海景。</p>
+                <div class="links">
+                    <a href="https://map.naver.com/v5/search/송도해상케이블카" target="_blank" class="link-btn naver-btn">📍 Naver地圖</a>
+                    <a href="https://yukigo.tw/songdo-cable-car/" target="_blank" class="link-btn info-btn">📖 詳細介紹</a>
+                </div>
+            </div>
+            
+            <div class="attraction">
+                <h4>🌉 松島龍宮雲橋</h4>
+                <p>釜山松島四大名勝之一，是座歷經多年維修後重新開放的迷你吊橋步道，連通釜山松島海水浴場與東島。</p>
+                <div class="links">
+                    <a href="https://map.naver.com/v5/search/송도용궁구름다리" target="_blank" class="link-btn naver-btn">📍 Naver地圖</a>
+                </div>
+            </div>
+            
+            <div class="attraction">
+                <h4>🍡 富平罐頭市場</h4>
+                <p>釜山最大的夜市，各種韓式小吃應有盡有，必吃milgot艾草糯米糕，是體驗當地夜市文化的最佳地點。</p>
+                <div class="links">
+                    <a href="https://map.naver.com/v5/search/부평깡통시장" target="_blank" class="link-btn naver-btn">📍 Naver地圖</a>
+                </div>
+            </div>
+        </div>
+        
+        <div id="day4" class="tab-content">
+            <h2 class="day-title">Day 4 - 7/12 (六) 太宗台 & 影島</h2>
+            
+            <div class="schedule">
+                <h4>📅 今日行程路線</h4>
+                <div class="route">
+                    <span class="route-item">白淺灘文化村</span>
+                    <span class="arrow">→</span>
+                    <span class="route-item">太宗台</span>
+                    <span class="arrow">→</span>
+                    <span class="route-item">影島海女村</span>
+                    <span class="arrow">→</span>
+                    <span class="route-item">龍頭山公園</span>
+                </div>
+            </div>
+            
+            <div class="attraction">
+                <h4>🌸 白淺灘文化村</h4>
+                <p>隱密的文化藝術村落，有許多可愛的壁畫和藝術裝置，氛圍清新寧靜，適合慢慢散步拍照。</p>
+                <div class="links">
+                    <a href="https://map.naver.com/v5/search/흰여울문화마을" target="_blank" class="link-btn naver-btn">📍 Naver地圖</a>
+                </div>
+            </div>
+            
+            <div class="attraction">
+                <h4>🚂 太宗台Danubi列車</h4>
+                <p>環繞太宗台的觀光列車，停靠觀景台(母子雕像)、影島燈塔和太宗寺站。太宗台是釜山最美的自然景觀之一。</p>
+                <div class="links">
+                    <a href="https://map.naver.com/v5/search/태종대" target="_blank" class="link-btn naver-btn">📍 Naver地圖</a>
+                </div>
+            </div>
+            
+            <div class="attraction">
+                <h4>🪂 太宗台高空滑索</h4>
+                <p>刺激的高空滑索體驗，從高處滑下可欣賞壯觀海景。需提早預約，風大時可能暫停營運。</p>
+                <div class="links">
+                    <a href="https://map.naver.com/v5/search/태종대오션플라잉" target="_blank" class="link-btn naver-btn">📍 Naver地圖</a>
+                </div>
+            </div>
+            
+            <div class="attraction">
+                <h4>🗼 龍頭山公園 & 釜山塔</h4>
+                <p>釜山的地標建築，登上釜山塔(鑽石塔)可360度俯瞰釜山市區和港口美景，是釜山必訪景點。</p>
+                <div class="links">
+                    <a href="https://map.naver.com/v5/search/용두산공원" target="_blank" class="link-btn naver-btn">📍 Naver地圖</a>
+                    <a href="https://map.naver.com/v5/search/부산타워" target="_blank" class="link-btn naver-btn">📍 釜山塔</a>
+                </div>
+            </div>
+        </div>
+        
+        <div id="day5" class="tab-content">
+            <h2 class="day-title">Day 5 - 7/13 (日) 五六島 & 購物</h2>
+            
+            <div class="schedule">
+                <h4>📅 今日行程路線</h4>
+                <div class="route">
+                    <span class="route-item">五六島</span>
+                    <span class="arrow">→</span>
+                    <span class="route-item">二妓台</span>
+                    <span class="arrow">→</span>
+                    <span class="route-item">廣安里</span>
+                    <span class="arrow">→</span>
+                    <span class="route-item">新世界百貨</span>
+                </div>
+            </div>
+            
+            <div class="attraction">
+                <h4>🌅 五六島天空步道</h4>
+                <p>釜山最美的海岸景點之一，天空步道懸掛在海上，可欣賞壯觀的海景和奇岩怪石。開放時間09:00-18:00，惡劣天氣時不開放。</p>
+                <div class="links">
+                    <a href="https://map.naver.com/v5/search/오륙도스카이워크" target="_blank" class="link-btn naver-btn">📍 Naver地圖</a>
+                    <a href="https://anise.tw/273740" target="_blank" class="link-btn info-btn">📖 詳細介紹</a>
+                </div>
+            </div>
+            
+            <div class="attraction">
+                <h4>🌊 五六島遊覽船</h4>
+                <p>約1小時的海上遊覽，可從海上欣賞五六島的美麗景色和獨特地形。需注意天氣狀況，風浪大時可能取消航班。</p>
+                <div class="links">
+                    <a href="https://map.naver.com/v5/search/오륙도유람선" target="_blank" class="link-btn naver-btn">📍 Naver地圖</a>
+                </div>
+            </div>
+            
+            <div class="attraction">
+                <h4>🏔️ 二妓台海岸散步路</h4>
+                <p>釜山著名的海岸散步道，可欣賞海蝕洞窟和壺穴地形等特殊地質景觀，是自然愛好者的天堂。</p>
+                <div class="links">
+                    <a href="https://map.naver.com/v5/search/이기대해안산책로" target="_blank" class="link-btn naver-btn">📍 Naver地圖</a>
+                </div>
+            </div>
+            
+            <div class="attraction">
+                <h4>🛍️ 新世界百貨海雲台店</h4>
+                <p>釜山高級購物中心，營業時間10:30-20:30，有各種國際品牌和韓國品牌，是購物的好去處。</p>
+                <div class="links">
+                    <a href="https://map.naver.com/v5/search/신세계백화점해운대점" target="_blank" class="link-btn naver-btn">📍 Naver地圖</a>
+                </div>
+            </div>
+        </div>
+        
+        <div id="day6" class="tab-content">
+            <h2 class="day-title">Day 6 - 7/14 (一) 離別釜山</h2>
+            
+            <div class="schedule">
+                <h4>📅 今日行程路線</h4>
+                <div class="route">
+                    <span class="route-item">旅館</span>
+                    <span class="arrow">→</span>
+                    <span class="route-item">南浦洞早餐</span>
+                    <span class="arrow">→</span>
+                    <span class="route-item">金海機場</span>
+                    <span class="arrow">→</span>
+                    <span class="route-item">桃園機場</span>
+                </div>
+            </div>
+            
+            <div class="attraction">
+                <h4>🥪 Egg Drop 南浦洞店</h4>
+                <p>韓國知名早餐連鎖店，以美味的雞蛋三明治聞名。營業時間08:00-19:00，是離開釜山前的完美早餐選擇。</p>
+                <div class="links">
+                    <a href="https://map.naver.com/v5/search/에그드롭남포동점" target="_blank" class="link-btn naver-btn">📍 Naver地圖</a>
+                </div>
+            </div>
+            
+            <div class="attraction">
+                <h4>🍲 崔氏大排骨醒酒湯</h4>
+                <p>24小時營業的傳統韓式湯品店，如果時間充裕可以品嚐正宗的韓式醒酒湯作為旅程的完美結束。</p>
+                <div class="links">
+                    <a href="https://map.naver.com/v5/search/최씨갈비해장국" target="_blank" class="link-btn naver-btn">📍 Naver地圖</a>
+                </div>
+            </div>
+            
+            <div class="attraction">
+                <h4>✈️ 釜山金海國際機場</h4>
+                <p>搭乘大韓航空KE2249班機，09:00起飛返回台灣。建議提前2小時到達機場辦理登機手續。</p>
+                <div class="links">
+                    <a href="https://map.naver.com/v5/search/김해공항" target="_blank" class="link-btn naver-btn">📍 Naver地圖</a>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <script>
+        // 頁籤切換功能
+        function showTab(evt, tabName) {
+            // 隱藏所有內容
+            var tabcontent = document.getElementsByClassName("tab-content");
+            for (var i = 0; i < tabcontent.length; i++) {
+                tabcontent[i].classList.remove("active");
+            }
+            
+            // 移除所有按鈕的active類別
+            var tablinks = document.getElementsByClassName("tab");
+            for (var i = 0; i < tablinks.length; i++) {
+                tablinks[i].classList.remove("active");
+            }
+            
+            // 顯示選中的內容並設置按鈕為active
+            var selectedTab = document.getElementById(tabName);
+            if (selectedTab) {
+                selectedTab.classList.add("active");
+            }
+            
+            if (evt && evt.currentTarget) {
+                evt.currentTarget.classList.add("active");
+            }
+        }
+        
+        // 頁面加載完成後初始化
+        document.addEventListener('DOMContentLoaded', function() {
+            // 確保Day 1是默認顯示的
+            var day1Tab = document.getElementById('day1');
+            var firstTabButton = document.querySelector('.tab');
+            
+            if (day1Tab) {
+                day1Tab.classList.add('active');
+            }
+            
+            if (firstTabButton) {
+                firstTabButton.classList.add('active');
+            }
+        });
+        
+        // 添加平滑滾動效果
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                }
+            });
+        });
+    </script>
+</body>
+</html>
