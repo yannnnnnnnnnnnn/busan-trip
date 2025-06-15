@@ -1,0 +1,1083 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>釜山6天5夜夏日之旅</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(135deg, #74b9ff 0%, #0984e3 50%, #6c5ce7 100%);
+            min-height: 100vh;
+            color: #2d3436;
+        }
+        
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+        
+        .header {
+            text-align: center;
+            background: rgba(255, 255, 255, 0.95);
+            padding: 30px;
+            border-radius: 20px;
+            margin-bottom: 30px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+            backdrop-filter: blur(10px);
+        }
+        
+        .header h1 {
+            color: #0984e3;
+            font-size: 2.5em;
+            margin-bottom: 10px;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.1);
+        }
+        
+        .header p {
+            color: #636e72;
+            font-size: 1.2em;
+        }
+        
+        .travel-info {
+            background: rgba(255, 255, 255, 0.9);
+            padding: 25px;
+            border-radius: 15px;
+            margin-bottom: 30px;
+            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.1);
+        }
+        
+        .travel-info h3 {
+            color: #e17055;
+            margin-bottom: 15px;
+            font-size: 1.3em;
+        }
+        
+        .info-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 20px;
+        }
+        
+        .info-item {
+            background: #f8f9fa;
+            padding: 15px;
+            border-radius: 10px;
+            border-left: 4px solid #74b9ff;
+        }
+        
+        .travel-tips {
+            background: linear-gradient(45deg, #fdcb6e, #e17055);
+            color: white;
+            padding: 25px;
+            border-radius: 15px;
+            margin-bottom: 30px;
+            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15);
+        }
+        
+        .travel-tips h3 {
+            margin-bottom: 15px;
+            font-size: 1.4em;
+        }
+        
+        .tips-list {
+            list-style: none;
+            padding: 0;
+        }
+        
+        .tips-list li {
+            background: rgba(255, 255, 255, 0.2);
+            margin: 10px 0;
+            padding: 12px;
+            border-radius: 8px;
+            backdrop-filter: blur(5px);
+        }
+        
+        .tabs {
+            display: flex;
+            justify-content: center;
+            margin-bottom: 30px;
+            flex-wrap: wrap;
+            gap: 10px;
+        }
+        
+        .tab {
+            background: rgba(255, 255, 255, 0.8);
+            border: none;
+            padding: 15px 25px;
+            border-radius: 25px;
+            cursor: pointer;
+            font-size: 1.1em;
+            font-weight: bold;
+            transition: all 0.3s ease;
+            color: #2d3436;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+        }
+        
+        .tab:hover {
+            background: rgba(116, 185, 255, 0.8);
+            color: white;
+            transform: translateY(-2px);
+            box-shadow: 0 6px 20px rgba(0, 0, 0, 0.15);
+        }
+        
+        .tab.active {
+            background: linear-gradient(45deg, #74b9ff, #0984e3);
+            color: white;
+            transform: translateY(-2px);
+            box-shadow: 0 6px 20px rgba(116, 185, 255, 0.4);
+        }
+        
+        .tab-content {
+            display: none;
+            background: rgba(255, 255, 255, 0.95);
+            padding: 30px;
+            border-radius: 20px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+            backdrop-filter: blur(10px);
+        }
+        
+        .tab-content.active {
+            display: block;
+            animation: fadeIn 0.5s ease-in-out;
+        }
+        
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        
+        .day-title {
+            color: #0984e3;
+            font-size: 2em;
+            margin-bottom: 20px;
+            text-align: center;
+            text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.1);
+        }
+        
+        .attraction {
+            background: linear-gradient(135deg, #f8f9fa, #e9ecef);
+            margin: 20px 0;
+            padding: 25px;
+            border-radius: 15px;
+            border-left: 5px solid #74b9ff;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.08);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+        
+        .attraction:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.12);
+        }
+        
+        .attraction h4 {
+            color: #e17055;
+            font-size: 1.3em;
+            margin-bottom: 10px;
+        }
+        
+        .attraction p {
+            line-height: 1.6;
+            margin-bottom: 15px;
+            color: #636e72;
+        }
+        
+        .links {
+            display: flex;
+            gap: 15px;
+            flex-wrap: wrap;
+        }
+        
+        .link-btn {
+            background: linear-gradient(45deg, #00b894, #55efc4);
+            color: white;
+            padding: 10px 20px;
+            text-decoration: none;
+            border-radius: 20px;
+            font-weight: bold;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 15px rgba(0, 184, 148, 0.3);
+        }
+        
+        .link-btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 6px 20px rgba(0, 184, 148, 0.4);
+        }
+        
+        .naver-btn {
+            background: linear-gradient(45deg, #00d2d3, #54a0ff);
+        }
+        
+        .info-btn {
+            background: linear-gradient(45deg, #fd79a8, #fdcb6e);
+        }
+        
+        .schedule {
+            background: linear-gradient(45deg, #a29bfe, #6c5ce7);
+            color: white;
+            padding: 20px;
+            border-radius: 15px;
+            margin-bottom: 20px;
+            box-shadow: 0 8px 25px rgba(108, 92, 231, 0.3);
+        }
+        
+        .schedule h4 {
+            margin-bottom: 15px;
+            font-size: 1.2em;
+        }
+        
+        .route {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+            align-items: center;
+        }
+        
+        .route-item {
+            background: rgba(255, 255, 255, 0.2);
+            padding: 8px 15px;
+            border-radius: 20px;
+            font-size: 0.9em;
+            backdrop-filter: blur(5px);
+        }
+        
+        .arrow {
+            color: #fdcb6e;
+            font-weight: bold;
+        }
+        
+        @media (max-width: 768px) {
+            .container {
+                padding: 10px;
+            }
+            
+            .header h1 {
+                font-size: 2em;
+            }
+            
+            .tab {
+                padding: 12px 20px;
+                font-size: 1em;
+            }
+            
+            .tab-content {
+                padding: 20px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <h1>🌊 釜山夏日之旅 🌊</h1>
+            <p>6天5夜精彩行程 • 2025年7月9日-14日</p>
+        </div>
+        
+        <div class="travel-info">
+            <h3>🚀 旅行基本資訊</h3>
+            <div class="info-grid">
+                <div class="info-item">
+                    <strong>住宿(AM10:30寄放行李)：</strong><br>
+                    <a href="https://www.booking.com/Share-78vbnf" target="_blank" style="color: #0984e3;">南浦洞旅館 (Booking.com)</a>
+                </div>
+                <div class="info-item">
+                    <strong>去程航班：</strong><br>
+                    7/9 濟州航空 7C6154<br>
+                    桃園機場 02:50 → 釜山金海機場
+                </div>
+                <div class="info-item">
+                    <strong>回程航班：</strong><br>
+                    7/14 大韓航空 KE2249<br>
+                    釜山金海機場 09:00 → 桃園機場
+                </div>
+            </div>
+        </div>
+        
+        <div class="travel-tips">
+            <h3>💡 旅遊小貼士</h3>
+            <ul class="tips-list">
+                <li>💰 換錢所營業時間通常09:00開始，24小時可用money box換錢機</li>
+                <li>🚇 購買釜山通行證(Visit Busan Pass)可節省交通和景點費用</li>
+                <li>🌤️ 膠囊列車和天空步道可能因天氣暫停，建議提早確認</li>
+                <li>🎫 熱門景點建議提前購票，避免現場排隊</li>
+                <li>📱 下載Naver Map app，含韓文地址更容易找路</li>
+                <li>🦀 海鮮料理建議中午前用餐，新鮮度較佳</li>
+                <li>🛍️ 大型超市和百貨公司通常10:00-22:00營業</li>
+            </ul>
+        </div>
+        
+        <div class="tabs">
+            <button class="tab active" onclick="showTab(event, 'day1')">Day 1</button>
+            <button class="tab" onclick="showTab(event, 'day2')">Day 2</button>
+            <button class="tab" onclick="showTab(event, 'day3')">Day 3</button>
+            <button class="tab" onclick="showTab(event, 'day4')">Day 4</button>
+            <button class="tab" onclick="showTab(event, 'day5')">Day 5</button>
+            <button class="tab" onclick="showTab(event, 'day6')">Day 6</button>
+        </div>
+        
+        <div id="day1" class="tab-content active">
+            <h2 class="day-title">Day 1 - 7/9 (三) 抵達釜山</h2>
+            
+            <div class="schedule">
+                <h4>📅 今日行程路線</h4>
+                <div class="route">
+                    <span class="route-item">桃園機場</span>
+                    <span class="arrow">→</span>
+                    <span class="route-item">釜山金海機場</span>
+					<span class="arrow">→</span>
+                    <span class="route-item">換錢所</span>
+                    <span class="arrow">→</span>
+                    <span class="route-item">西面站</span>
+                    <span class="arrow">→</span>
+                    <span class="route-item">BIFC展望台</span>
+                    <span class="arrow">→</span>
+                    <span class="route-item">南浦洞</span>
+                </div>
+            </div>
+             <div class="attraction">
+                <h4>💰 換錢所</h4>
+                <p></p>
+                <div class="links">
+					<a href="https://www.instagram.com/reel/DDtk61LzJIz/?igsh=NnZ0d2llcndzOHJw" target="_blank" class="link-btn info-btn">📍 機場換錢</a>
+					<a href="https://creatrip.com/zh-TW/blog/9469" target="_blank" class="link-btn info-btn">📍 市區換錢</a>
+                </div>
+            </div>
+            <div class="attraction">
+                <h4>🍜 西面湯飯一條街</h4>
+                <p>釜山最著名的豬肉湯飯聚集地，推薦松亭三代豬肉湯飯或秀英本家，濃郁的白湯搭配軟嫩豬肉，是釜山必吃美食。</p>
+                <div class="links">
+                    <a href="https://map.naver.com/v5/search/서면돼지국밥거리" target="_blank" class="link-btn naver-btn">📍 Naver地圖</a>
+					<a href="https://naver.me/GfCsEbvp" target="_blank" class="link-btn info-btn">📍 松亭三代豬肉湯飯</a>
+                </div>
+            </div>
+            
+            <div class="attraction">
+                <h4>🛍️ 西面站商圈</h4>
+                <p>釜山最熱鬧的購物區域，包含西面地下街、西面青春街、田浦咖啡街，各種時尚店舖和美食應有盡有。</p>
+                <div class="links">
+                    <a href="https://naver.me/xv6vnzr8" target="_blank" class="link-btn naver-btn">📍 Naver地圖</a>
+					<a href="https://maps.app.goo.gl/MvhJamwHsGxrgWY4A" target="_blank" class="link-btn naver-btn">📍 Google地圖</a>
+                </div>
+            </div>
+			
+			 <div class="attraction">
+                <h4>🛍️ 西面市場</h4>
+                <p>釜山最繁華商圈西面，距離西面地鐵站僅數分鐘步程。已有超過60年歷史，是結合傳統與時尚活力的熱門市場。</p>
+                <div class="links">
+                    <a href="https://naver.me/x8tLVWqk" target="_blank" class="link-btn naver-btn">📍 Naver地圖</a>
+					<a href="https://maps.app.goo.gl/pGfk8fLb8BNB36e36" target="_blank" class="link-btn naver-btn">📍 Google地圖</a>
+					<a href="https://hk.trip.com/moments/poi-seomyeon-food-alley-56813994/?locale=zh-HK&curr=TWD" target="_blank" class="link-btn info-btn">📍 景點介紹</a>
+                </div>
+            </div>
+            
+            <div class="attraction">
+                <h4>🌃 釜山國際金融中心(BIFC)展望台</h4>
+                <p>位於38樓的免費展望台，可360度俯瞰釜山市區美景，是欣賞釜山全景的最佳地點之一。</p>
+                <div class="links">
+                    <a href="https://naver.me/GXAaehs7" target="_blank" class="link-btn naver-btn">📍 Naver地圖</a>
+					<a href="https://maps.app.goo.gl/maUdrhPXetBkywNT9" target="_blank" class="link-btn naver-btn">📍 Google地圖</a>
+                </div>
+            </div>
+			
+             <div class="attraction">
+                <h4>🍜 Bobae中餐館Seomyeon店</h4>
+                <p>在釜山是一家頗具盛名的韓式中式餐廳，主打經典韓中融合的麵食與海鮮料理。</p>
+                <div class="links">
+                    <a href="https://naver.me/F3TjsQOb" target="_blank" class="link-btn naver-btn">📍 Naver地圖</a>
+					<a href="https://www.instagram.com/bobaelv/?api=poker%E3%80%90PG.CYOU%E3%80%91.txmr&hl=zh-cn" target="_blank" class="link-btn info-btn">📍 餐廳介紹</a>
+                </div>
+            </div>
+			
+            <div class="attraction">
+                <h4>🍗 60계치킨 서면점</h4>
+                <p>釜山知名炸雞店，酥脆外皮搭配多汁雞肉，是當地人推薦的宵夜選擇。</p>
+                <div class="links">
+                    <a href="https://naver.me/5tJd4oyt" target="_blank" class="link-btn naver-btn">📍 Naver地圖</a>
+					<a href="https://maps.app.goo.gl/enfAnhY8Hadfu4sv8" target="_blank" class="link-btn naver-btn">📍 Google地圖</a>
+                </div>
+            </div>
+			
+        </div>
+        
+        <div id="day2" class="tab-content">
+            <h2 class="day-title">Day 2 - 7/10 (四) 海雲台藍線公園</h2>
+            
+            <div class="schedule">
+                <h4>📅 今日行程路線</h4>
+                <div class="route">
+                    <span class="route-item">海雲台站</span>
+					  <span class="arrow">→</span>
+                    <span class="route-item">海雲台市場</span>
+                    <span class="arrow">→</span>
+                    <span class="route-item">膠囊列車</span>
+                    <span class="arrow">→</span>
+                    <span class="route-item">青沙浦</span>
+                    <span class="arrow">→</span>
+                    <span class="route-item">松亭</span>
+                    <span class="arrow">→</span>
+                    <span class="route-item">廣安里</span>
+                </div>
+            </div>
+			
+             <div class="attraction">
+                <h4>🌊 海雲台市場</h4>
+                <p>海雲台市場位於海雲臺海水浴場附近，自1910年起逐漸發展，2008年整修後成為現代化的傳統市場。</p>
+                <div class="links">
+                    <a href="https://naver.me/xFLuqIyP" target="_blank" class="link-btn naver-btn">📍 Naver地圖</a>
+                    <a href="https://feitravel.tw/blog/post/69698924" target="_blank" class="link-btn info-btn">📍 景點介紹</a>
+                </div>
+            </div>
+			
+			<div class="attraction">
+                <h4>🥖 自然島鹽麵包&自然島海(釜山海雲台)</h4>
+                <p>這間釜山第一家的自然島鹽麵包店，位在搭乘天空膠囊列車＆海岸列車的海雲台藍線公園尾浦站對面，離 Busan X the Sky、Club D Oasis 也很近，有在附近的話一定要順路來吃看看！</p>
+				<p>每天有六次出爐時間：09:00、12:30、14:00、15:30、17:00、18:30，確保客人吃到的都是新鮮現作的鹽麵包！</p>
+                <div class="links">
+					<a href="https://naver.me/xrSQSF2f" target="_blank" class="link-btn naver-btn">📍 Naver地圖</a>
+                    <a href="https://maps.app.goo.gl/Fk2Rjrqxa7ZWwPrAA" target="_blank" class="link-btn naver-btn">📍 Google地圖</a>
+                    <a href="https://debbiechien.com/salt-bread-busan-haeundae/" target="_blank" class="link-btn info-btn">📍 店家介紹</a>
+                </div>
+            </div>
+			
+			 <div class="attraction">
+                <h4>🛍️ 海理團路（해리단길) 街區</h4>
+                <p>海理團路（해리단길）座落於海雲台站後方，沿著廢棄的東海南部原鐵路形成。這裡曾是老街區，已轉變為兼具歷史與潮流感的獨特空間，巷弄裡有許多特色咖啡館、文青小店與小餐館，是釜山本地年輕人與遊客都愛的「隱藏版美食與拍照熱點」。</p>
+                <div class="links">
+                    <a href="https://naver.me/GhbuYmQM" target="_blank" class="link-btn naver-btn">📍 Naver地圖</a>
+					<a href="https://maps.app.goo.gl/k59xX6K6WmqHBaKG8" target="_blank" class="link-btn naver-btn">📍 Google地圖</a>
+                    <a href="https://www.bigfang.tw/blog/post/haeridangil-street-haeundae" target="_blank" class="link-btn info-btn">📍 店家介紹</a>
+                </div>
+            </div>
+			
+            <div class="attraction">
+                <h4>🚠 海雲台藍線公園膠囊列車(13:00-13:30)</h4>
+                <p>釜山最熱門的海岸觀光列車，從尾浦站到青沙浦站，沿途可欣賞絕美海景。建議提前購票避免排隊。</p>
+                <div class="links">
+                    <a href="https://naver.me/FafyrnAe" target="_blank" class="link-btn naver-btn">📍 Naver地圖</a>
+                    <a href="https://maps.app.goo.gl/756FNnDyAdZCrHCV6" target="_blank" class="link-btn naver-btn">📍 Google地圖</a>
+					<a href="https://www.tbluelinepark.com/m/mobileTicket/RS25011058574/D6EA487A4F2B7B785D28E271E9D561DBD508E60CABC3733B89E6A246DAB7EB94" target="_blank" class="link-btn info-btn">📍 車票憑證</a>
+                </div>
+            </div>
+            
+            <div class="attraction">
+                <h4>📸 青沙浦燈塔 & 天空步道</h4>
+                <p>韓版灌籃高手平交道拍照聖地，青沙浦燈塔周邊有美麗的海岸步道和天空步道，是絕佳的拍照景點。</p>
+                <div class="links">
+                    <a href="https://map.naver.com/v5/search/청사포등대" target="_blank" class="link-btn naver-btn">📍 Naver地圖</a>
+                </div>
+            </div>
+			
+			<div class="attraction">
+                <h4>🐟 燈塔烤鰻烤扇貝</h4>
+                <p>位於海雲台藍線膠囊列車的青沙浦站至紅白燈塔步行約 5–10 分鐘。民眾常搭乘可愛的膠囊小火車抵達此地，再前往餐廳享受海邊美味。</p>
+                <div class="links">
+                    <a href="https://naver.me/5neg7WoQ" target="_blank" class="link-btn naver-btn">📍 Naver地圖</a>
+					<a href="https://maps.app.goo.gl/pF2ovF4vdUySPoxV8" target="_blank" class="link-btn naver-btn">📍 Google地圖</a>
+                    <a href="https://www.facebook.com/reel/1201500618375374" target="_blank" class="link-btn info-btn">📍 店家介紹</a>
+                </div>
+            </div>
+			
+			<div class="attraction">
+                <h4>☕ DiART coffee</h4>
+                <p>DiART Coffee 是一處能兼顧美味、視野與拍攝風格的精品咖啡館。強烈推薦 Kaymak＋Einspänner 手沖組合，配上海風吹拂與海景，絕對能為你的海雲台行程增色不少。</p>
+                <p>吃Kaymak 蜂蜜白法棍🥖 喝咖啡☕</p>
+				<div class="links">
+                    <a href="https://naver.me/Gxk1OJez" target="_blank" class="link-btn naver-btn">📍 Naver地圖</a>
+					<a href="https://maps.app.goo.gl/uVsyuDgjWkwLLQAF8" target="_blank" class="link-btn naver-btn">📍 Google地圖</a>
+                    <a href="https://www.popdaily.com.tw/forum/food/1482576" target="_blank" class="link-btn info-btn">📍 店家介紹</a>
+                </div>
+            </div>
+			
+			<div class="attraction">
+                <h4>🌿 竹島公園</h4>
+                <p>松亭海水浴場盡頭的翠綠散步島</p>
+				<div class="links">
+                    <a href="https://naver.me/FpxBNZFx" target="_blank" class="link-btn naver-btn">📍 Naver地圖</a>
+					<a href="https://maps.app.goo.gl/hCeSvRK72uD5PNYM7" target="_blank" class="link-btn naver-btn">📍 Google地圖</a>
+                    <a href="https://www.visitbusan.net/index.do?menuCd=DOM_000000602002001000&uc_seq=1356&lang_cd=cnb" target="_blank" class="link-btn info-btn">📍 景點介紹</a>
+                </div>
+            </div>
+			
+			<div class="attraction">
+                <h4>🍜 海雲台31cm海鮮刀削麵松亭總店</h4>
+                <p>使用巨型 31cm 碗裝盛：滿滿的新鮮海鮮（淡菜、蛤蠣、魷魚、蝦等），份量十足 。刀削麵手工加入麵粉與澱粉，口感彈牙、耐燙—浸泡於海味鮮濃的湯頭中依舊保有咬勁 。湯底透亮卻鮮甜，搭配微辣泡菜增添層次，辣度溫順但回味深刻 。</p>
+				<div class="links">
+                    <a href="https://naver.me/GcjWhwYz" target="_blank" class="link-btn naver-btn">📍 Naver地圖</a>
+					<a href="https://maps.app.goo.gl/YKdCdYt4ekdbgmsd9" target="_blank" class="link-btn naver-btn">📍 Google地圖</a>
+                    <a href="https://anise.tw/271162" target="_blank" class="link-btn info-btn">📍 餐廳介紹</a>
+                </div>
+            </div>
+			
+            <div class="attraction">
+                <h4>🏔️ Skyline Luge</h4>
+                <p>刺激的無動力滑車體驗，從山頂滑下可欣賞海景，適合喜愛刺激活動的旅客。</p>
+                <div class="links">
+                    <a href="https://naver.me/IDFUcLWo" target="_blank" class="link-btn naver-btn">📍 Naver地圖</a>
+					<a href="https://maps.app.goo.gl/7zHCEbNtRTwbEedG7" target="_blank" class="link-btn naver-btn">📍 Google地圖</a>
+					<a href="https://debbiechien.com/busan-skyline-luge/" target="_blank" class="link-btn info-btn">📍 景點介紹</a>
+                </div>
+            </div>
+			
+            <div class="attraction">
+                <h4>🐲 海東龍宮寺</h4>
+                <p>海東龍宮寺位於釜山機張郡，背靠懸崖、面向東海，是韓國少數落座於海岸的佛教寺廟之一 。</p>
+                <div class="links">
+                    <a href="https://naver.me/58NdWaSm" target="_blank" class="link-btn naver-btn">📍 Naver地圖</a>
+					<a href="https://maps.app.goo.gl/kN5ra62RMqfEVEZF6" target="_blank" class="link-btn naver-btn">📍 Google地圖</a>
+					<a href="https://markandhazyl.com/haedong-yonggungsa-temple/" target="_blank" class="link-btn info-btn">📍 景點介紹</a>
+                </div>
+            </div>
+			
+			<div class="attraction">
+                <h4>🏞️ Osiria Coastal Walk</h4>
+                <p>奧西利亞海岸散步道位於釜山機張，是一條位於渡假村  Ananti Cove 前的隱藏海岸步道。步道長2公里，路線平緩，適合散步，有許多韓國人會在這裡遛狗，還有不少情侶來此地浪漫約會，甚至是慢跑。</p>
+                <div class="links">
+					<a href="https://naver.me/xcnaUKZV" target="_blank" class="link-btn naver-btn">📍 Naver地圖</a>
+					<a href="https://maps.app.goo.gl/PzXXsdcErsz2W6Us6" target="_blank" class="link-btn naver-btn">📍 Google地圖</a>
+					<a href="https://lizzzstyle.tw/osiria-coastal-walk/" target="_blank" class="link-btn info-btn">📍 景點介紹</a>
+                </div>
+            </div>
+			
+			<div class="attraction">
+                <h4>🎡 樂天世界</h4>
+                <p>現在到釜山玩，一定不會錯過這個2022年才開幕的全韓國最大的主題樂園這個新景點。佔地50多萬平方公尺，比首爾的樂天世界大3-4倍。這個主題樂園斥資5千億韓元打造，以LOTTY搭救女主角Lorry的「童話王國」為主題，展開的童話冒險闖關故事。園區設立6大園區，不僅有24項遊樂設施，還有精靈跳舞花車遊行等演出活動、各種超好拍打卡點供遊客拍照，以及住宿飯店、購物商場等，要讓來的人玩到不想回家。</p>
+                <div class="links">
+					<a href="https://naver.me/x9BN8XXI" target="_blank" class="link-btn naver-btn">📍 Naver地圖</a>
+					<a href="https://maps.app.goo.gl/9KErLCauztiD8b1J7" target="_blank" class="link-btn naver-btn">📍 Google地圖</a>
+					<a href="https://supertaste.tvbs.com.tw/asia/339091" target="_blank" class="link-btn info-btn">📍 景點介紹</a>
+                </div>
+            </div>
+			
+			<div class="attraction">
+                <h4>🦀 尾浦家松亭店</h4>
+                <p>以「醬蟹（간장게장）」與「醬蝦（양념새우）」聞名，這些醃製海鮮常作為釜山當地熱門的下酒料理。</p>
+                <div class="links">
+                    <a href="https://naver.me/IMyGdVr6" target="_blank" class="link-btn naver-btn">📍 Naver地圖</a>
+                    <a href="https://maps.app.goo.gl/XnQbYaBLiSdbnXgn6" target="_blank" class="link-btn naver-btn">📍 Google地圖</a>
+					<a href="https://suger25.pixnet.net/blog/post/577567016" target="_blank" class="link-btn info-btn">📍 餐廳介紹</a>
+                </div>
+            </div>
+			
+			<div class="attraction">
+                <h4>🌃 BUSAN X the SKY</h4>
+                <p>眺望海雲台美景，世界上最高星巴克。</p>
+                <div class="links">
+                    <a href="https://naver.me/5IS92bMA" target="_blank" class="link-btn naver-btn">📍 Naver地圖</a>
+                    <a href="https://maps.app.goo.gl/eCCftscqENFZqBrg6" target="_blank" class="link-btn naver-btn">📍 Google地圖</a>
+					<a href="https://tsnio.com/busan-x-the-sky/" target="_blank" class="link-btn info-btn">📍 景點介紹</a>
+                </div>
+            </div>
+			
+			<div class="attraction">
+                <h4>🌉 廣安里海灘 & The Bay101</h4>
+                <p>釜山最美的海灘之一，夜晚的廣安大橋燈光秀非常壯觀。The Bay101是知名的海景咖啡廳。</p>
+                <div class="links">
+                    <a href="https://map.naver.com/v5/search/광안리해수욕장" target="_blank" class="link-btn naver-btn">📍 Naver地圖</a>
+                    <a href="https://map.naver.com/v5/search/더베이101" target="_blank" class="link-btn naver-btn">📍 The Bay101</a>
+                </div>
+            </div>
+			
+			<div class="attraction">
+                <h4>🥯 All Sunday</h4>
+                <p>位於廣安里海灘正前方，擁有大片玻璃窗俯瞰海景的舒適座位區。每日新鮮現烤，種類多樣：原味、鹽味、芝麻、黑蜂蜜奶油、橄欖貝果等。</p>
+                <div class="links">
+                    <a href="https://naver.me/5WOQqri9" target="_blank" class="link-btn naver-btn">📍 Naver地圖</a>
+                    <a href="https://maps.app.goo.gl/WNXV5M5wF2vc8mF17" target="_blank" class="link-btn naver-btn">📍 Google地圖</a>
+					<a href="https://anise.tw/272777" target="_blank" class="link-btn info-btn">📍 餐廳介紹</a>
+                </div>
+            </div>
+            
+			<div class="attraction">
+                <h4>🐖 超必殺烤豬皮「초필살돼지구이」</h4>
+                <p>超人氣的招牌豬皮，搭配多樣沾醬，口感與風味兼備。</p>
+                <div class="links">
+                    <a href="https://naver.me/GV2K3HFv" target="_blank" class="link-btn naver-btn">📍 Naver地圖</a>
+                    <a href="https://maps.app.goo.gl/g99kHhNrRdPgpnyK7" target="_blank" class="link-btn naver-btn">📍 Google地圖</a>
+					<a href="https://crystalims.com/%E8%B6%85%E5%BF%85%E6%AE%BA%E7%83%A4%E8%B1%AC%E7%9A%AE-%EC%B4%88%ED%95%84%EC%82%B4%EB%8F%BC%EC%A7%80%EA%B5%AC%EC%9D%B4/#google_vignette" target="_blank" class="link-btn info-btn">📍 餐廳介紹</a>
+                </div>
+            </div>
+			
+        </div>
+        
+        <div id="day3" class="tab-content">
+            <h2 class="day-title">Day 3 - 7/11 (五) 甘川洞 & 松島</h2>
+            
+            <div class="schedule">
+                <h4>📅 今日行程路線</h4>
+                <div class="route">
+                    <span class="route-item">札嘎其市場</span>
+                    <span class="arrow">→</span>
+                    <span class="route-item">甘川洞文化村</span>
+                    <span class="arrow">→</span>
+                    <span class="route-item">松島海水浴場/天空步道/空中纜車</span>
+                    <span class="arrow">→</span>
+                    <span class="route-item">富平夜市</span>
+					 <span class="arrow">→</span>
+                    <span class="route-item">光復路時尚街</span>
+                </div>
+            </div>
+			
+            <div class="attraction">
+                <h4>🛍️ 札嘎其市場</h4>
+                <p>札嘎其市場是釜山最大的海鮮市場，而且就位在熱鬧的市中心，在地鐵札嘎其站和南浦站中間，對觀光客來說非常容易攻略。</p>
+                <div class="links">
+                    <a href="https://naver.me/xBwJzsdQ" target="_blank" class="link-btn naver-btn">📍 Naver地圖</a>
+                    <a href="https://maps.app.goo.gl/KaXRUwRAwPEWNz7t6" target="_blank" class="link-btn naver-btn">📍 Google地圖</a>
+					<a href="https://www.bigfang.tw/blog/post/jagalchi-market-busan" target="_blank" class="link-btn info-btn">📍 餐廳介紹</a>
+                </div>
+            </div>
+			
+            <div class="attraction">
+                <h4>🏘️ 甘川洞文化村</h4>
+                <p>釜山必訪的彩色山城，被稱為「韓國的馬丘比丘」。五彩繽紛的小房子圍繞山坡，是絕佳的拍照景點，也是韓國人熱愛的國內旅遊勝地。</p>
+                <div class="links">
+                    <a href="https://naver.me/5iTdxyDV" target="_blank" class="link-btn naver-btn">📍 Naver地圖</a>
+                    <a href="https://maps.app.goo.gl/ApP4MgFFfqVveXWF7" target="_blank" class="link-btn naver-btn">📍 Google地圖</a>
+					<a href="https://mimihan.tw/busan-gamcheondong/" target="_blank" class="link-btn info-btn">📖 詳細介紹</a>
+                </div>
+            </div>
+			
+			<div class="attraction">
+                <h4>🍜 隱世冷麵</h4>
+                <p>蕎麥冷麵是清涼Q彈的蕎麥麵條，搭配辣醬與冰涼湯底，不僅百分百消暑，份量充足很有飽足感，韓國拌麵也是以甜醬和冷麵做搭配，別有一番風味。</p>
+                <div class="links">
+                    <a href="https://naver.me/GtJpwJ13" target="_blank" class="link-btn naver-btn">📍 Naver地圖</a>
+                    <a href="https://maps.app.goo.gl/B1shUNUuuCazgC1fA" target="_blank" class="link-btn naver-btn">📍 Google地圖</a>
+					<a href="https://www.elle.com.hk/life/8-busan-food-recommendations" target="_blank" class="link-btn info-btn">📍 餐廳介紹</a>
+                </div>
+            </div>
+			
+			<div class="attraction">
+                <h4>🏖️ 松島海水浴場</h4>
+                <p>松島海水浴場因附近的龜島長滿松樹而得名「松島」，建於20世紀初，是韓國第一座海水浴場。</p>
+                <div class="links">
+                    <a href="https://naver.me/xP8mWtYB" target="_blank" class="link-btn naver-btn">📍 Naver地圖</a>
+                    <a href="https://maps.app.goo.gl/fkCzp8hLTuziSpK59" target="_blank" class="link-btn naver-btn">📍 Google地圖</a>
+					<a href="https://travel.yam.com/article/117543" target="_blank" class="link-btn info-btn">📍 景點介紹</a>
+                </div>
+            </div>
+			
+			<div class="attraction">
+                <h4>🏖️ 松島天空步道</h4>
+                <p>2015年開放的松島天空步道，全長約長365公尺，連接陸地與位於松島海水浴場東邊的龜島，部分區間特別設置了透明強化玻璃，給人彷彿走在大海上的刺激感。漫步在步道上，還能將有眾多漁船停舶的松島沿岸、松島海水浴場、松島海上纜車盡收眼底。美麗的景色也使這裡漸漸成為釜山海水浴場的新地標。</p>
+                <div class="links">
+                    <a href="https://naver.me/FJbW3smn" target="_blank" class="link-btn naver-btn">📍 Naver地圖</a>
+                    <a href="https://maps.app.goo.gl/DPiSdXJ9Ko8Fdst47" target="_blank" class="link-btn naver-btn">📍 Google地圖</a>
+					<a href="https://yukigo.tw/songdo-cable-car/" target="_blank" class="link-btn info-btn">📍 景點介紹</a>
+                </div>
+            </div>
+            
+            <div class="attraction">
+                <h4>🚠 松島海上纜車</h4>
+                <p>韓國第一條海上纜車，也是目前最長的跨海纜車，在高達86公尺的高空一覽整個松島海景。</p>
+				<p>搭空中纜車至松島sky park站</p>
+                <div class="links">
+                    <a href="https://naver.me/xCB7Ujqk" target="_blank" class="link-btn naver-btn">📍 Naver地圖</a>
+					<a href="https://maps.app.goo.gl/iKovuNjif5mb3rCKA" target="_blank" class="link-btn naver-btn">📍 Google地圖</a>
+                    <a href="https://reurl.cc/EVAL3K" target="_blank" class="link-btn info-btn">📍 景點介紹</a>
+                </div>
+            </div>
+            
+            <div class="attraction">
+                <h4>🌉 松島龍宮雲橋</h4>
+                <p>釜山松島四大名勝之一，是座歷經多年維修後重新開放的迷你吊橋步道，連通釜山松島海水浴場與東島。</p>
+                <div class="links">
+                    <a href="https://naver.me/5T4AUbEV" target="_blank" class="link-btn naver-btn">📍 Naver地圖</a>
+					<a href="https://maps.app.goo.gl/ASfwz66s1ktykTwaA" target="_blank" class="link-btn naver-btn">📍 Google地圖</a>
+					<a href="https://lizzzstyle.tw/%E6%9D%BE%E5%B3%B6%E9%BE%8D%E5%AE%AE%E9%9B%B2%E6%A9%8B/" target="_blank" class="link-btn info-btn">📍 景點介紹</a>
+                </div>
+            </div>
+			
+            <div class="attraction">
+                <h4>☕ EL16.52海景咖啡廳</h4>
+                <p>坐落於釜山松島的EL 16.52咖啡廳曾因傑出設計而獲頒多個建築獎項，將波浪具象化的拱形建築設計、明亮的室內裝飾與松島海景相輔相成，魅力非凡。從意指建築位於EL（海拔高度）16.52公尺處的店名與Logo，不難發現店家對於「松島」的熱愛。</p>
+                <div class="links">
+                    <a href="https://naver.me/xFLuQKzX" target="_blank" class="link-btn naver-btn">📍 Naver地圖</a>
+                    <a href="https://maps.app.goo.gl/ByxKEmwQyCrjg9kk8" target="_blank" class="link-btn naver-btn">📍 Google地圖</a>
+					<a href="https://www.visitbusan.net/index.do?menuCd=DOM_000000602003001000&uc_seq=1967&lang_cd=cnb" target="_blank" class="link-btn info-btn">📍 餐廳介紹</a>
+                </div>
+            </div>
+			
+			<div class="attraction">
+                <h4>🍕 李在模pizza</h4>
+                <p>李在模披薩是連韓國人都愛的釜山美食，爆漿如瀑布的起司配上軟彈餅皮，邪惡的美味好吃！每間店都有排隊人潮，連在地人都喜歡；不過李在模的披薩只開在釜山跟濟州島，首爾吃不到喔！總店開在南浦洞的光復路，另外在釜山站、西面有分店，記得先用app網路預約訂位，就不用現場排隊等太久。</p>
+                <div class="links">
+                    <a href="https://naver.me/GzE9tcdA" target="_blank" class="link-btn naver-btn">📍 Naver地圖</a>
+                    <a href="https://maps.app.goo.gl/QFbfMgBynUe5YsELA" target="_blank" class="link-btn naver-btn">📍 Google地圖</a>
+					<a href="https://alinalife.tw/leejaemo-pizza/" target="_blank" class="link-btn info-btn">📍 餐廳介紹</a>
+					<a href="https://www.catchtable.net/shop/leejaemo?ct-referrer=google-maps%3Fairbridge_referrer%3Dairbridge%3Dtrue%26client_id%3D0a3b5853-6584-411a-95ba-9fa75dae4986%26event_uuid%3D8aacc5cd-0152-403c-b469-127bd551c931%26referrer_timestamp%3D1749988109551%26short_id%3Ddeacyh%26channel%3Dgooglemaps%26campaign%3DCT_UNIVERSAL%26tracking_template_id%3D045212f7d710f9b5e86a77bdeed9328b%26ad_group%3DLANDING%26og_tag_id%3D141407094%26routing_short_id%3Dr5slqa%26path%3Dshop%252Fleejaemo%26params%3D%253Fct-referrer%253Dgoogle-maps&utm_source=googlemaps&utm_campaign=CT_UNIVERSAL&path=shop%2Fleejaemo&params=%3Fct-referrer%3Dgoogle-maps&type=REMOTE_WAITING_GLOBAL" target="_blank" class="link-btn info-btn">📍 預約網站</a>
+                </div>
+            </div>
+			
+			<div class="attraction">
+                <h4>🛍️ 歐南浦洞-Biff廣場</h4>
+                <p>傳統街頭小吃攤美食。</p>
+                <div class="links">
+                    <a href="https://naver.me/FDnCfOLW" target="_blank" class="link-btn naver-btn">📍 Naver地圖</a>
+                    <a href="https://maps.app.goo.gl/1a9A8GRuXAZ2vFsh8" target="_blank" class="link-btn naver-btn">📍 Google地圖</a>
+					<a href="https://kiara.tw/biff/" target="_blank" class="link-btn info-btn">📍 景點介紹</a>
+                </div>
+            </div>
+			
+            <div class="attraction">
+                <h4>🍡 富平罐頭市場</h4>
+                <p>釜山最大的夜市，各種韓式小吃應有盡有，必吃milgot艾草糯米糕，是體驗當地夜市文化的最佳地點。</p>
+                <div class="links">
+                    <a href="https://map.naver.com/v5/search/부평깡통시장" target="_blank" class="link-btn naver-btn">📍 Naver地圖</a>
+                </div>
+            </div>
+			
+			<div class="attraction">
+                <h4>🛍️ ️光復路時尚街</h4>
+                <p>是釜山著名的購物商圈，從光復路擴散出去的街區集結上百家商店與餐廳，是釜山年輕人逛街購物的好去。光復路不僅提供有許多國際知名品牌，巷弄裡進去更有不少在地店家與餐館及樂天百貨公司，商品從平價到高端應有盡有！</p>
+                <div class="links">
+                    <a href="https://naver.me/Gsj2q3ln" target="_blank" class="link-btn naver-btn">📍 Naver地圖</a>
+                    <a href="https://maps.app.goo.gl/fjbenFngPSpSXFD79" target="_blank" class="link-btn naver-btn">📍 Google地圖</a>
+					<a href="https://journey.tw/gwangbok-ro-fashion-street/" target="_blank" class="link-btn info-btn">📍 景點介紹</a>
+                </div>
+            </div>
+        </div>
+        
+        <div id="day4" class="tab-content">
+            <h2 class="day-title">Day 4 - 7/12 (六) 太宗台 & 影島</h2>
+            
+            <div class="schedule">
+                <h4>📅 今日行程路線</h4>
+                <div class="route">
+                    <span class="route-item">白淺灘文化村</span>
+                    <span class="arrow">→</span>
+                    <span class="route-item">太宗台</span>
+                    <span class="arrow">→</span>
+                    <span class="route-item">影島海女村</span>
+                    <span class="arrow">→</span>
+                    <span class="route-item">龍頭山公園</span>
+                </div>
+            </div>
+			
+            <div class="attraction">
+                <h4>🍴️ ️五福海帶湯</h4>
+                <p>海帶湯是韓國飲食中非常重要食物，除了生日要喝海帶湯，孕婦產後也會喝海帶湯來調養身體，五福海帶湯還強調喝海帶湯有排出體內的黃沙和重金屬等功能。</p>
+                <div class="links">
+                    <a href="https://naver.me/FIf9sV5O" target="_blank" class="link-btn naver-btn">📍 Naver地圖</a>
+                    <a href="https://maps.app.goo.gl/LyVDkuNk74UwSfxh9" target="_blank" class="link-btn naver-btn">📍 Google地圖</a>
+					<a href="https://www.bigfang.tw/blog/post/wufu-seaweed-nampo" target="_blank" class="link-btn info-btn">📍 餐廳介紹</a>
+                </div>
+            </div>
+			
+            <div class="attraction">
+                <h4>🌸 白淺灘文化村</h4>
+                <p>隱密的文化藝術村落，有許多可愛的壁畫和藝術裝置，氛圍清新寧靜，適合慢慢散步拍照。</p>
+                <div class="links">
+                    <a href="https://naver.me/xLWAPvjS" target="_blank" class="link-btn naver-btn">📍 Naver地圖</a>
+					<a href="https://maps.app.goo.gl/cmFwBTNA8jDS3EgBA" target="_blank" class="link-btn naver-btn">📍 Google地圖</a>
+					<a href="https://anise.tw/269898" target="_blank" class="link-btn info-btn">📍 餐廳介紹</a>
+                </div>
+            </div>
+            
+			<div class="attraction">
+                <h4>☕ footbath cafe view</h4>
+                <p>白淺灘文化村是近年釜山自由行景點中熱門的地點之一，靠近海岸邊的白淺灘文化村，有許多老屋沿著海岸邊高高低低而建，巷弄間有不少漂亮的咖啡廳，且大部分可以看到大海美景，這篇推薦大家一間白淺灘文化村裡面很有特色的咖啡廳：족욕카페 뷰，這間咖啡廳的餐點我覺得不太算是美食，但是因為有泡腳的足浴服務，還可以按摩肩頸，又可以一邊看大海，飲料普通一點似乎還可以接受。</p>
+                <div class="links">
+                    <a href="https://naver.me/F0z2wZum" target="_blank" class="link-btn naver-btn">📍 Naver地圖</a>
+					<a href="https://maps.app.goo.gl/SiXob15BAKE4A1PR8" target="_blank" class="link-btn naver-btn">📍 Google地圖</a>
+					<a href="https://minako.tw/foot-bath-cafe-busan/" target="_blank" class="link-btn info-btn">📍 餐廳介紹</a>
+                </div>
+            </div>
+			
+            <div class="attraction">
+                <h4>🚂 太宗台Danubi列車</h4>
+                <p>環繞太宗台的觀光列車，停靠觀景台(母子雕像)、影島燈塔和太宗寺站。太宗台是釜山最美的自然景觀之一。</p>
+                <div class="links">
+                    <a href="https://naver.me/FDnSON4s" target="_blank" class="link-btn naver-btn">📍 Naver地圖</a>
+					<a href="https://maps.app.goo.gl/GZF7Y1tKvTfhn4PQ9" target="_blank" class="link-btn naver-btn">📍 Google地圖</a>
+					<a href="https://anise.tw/274592" target="_blank" class="link-btn info-btn">📍 景點介紹</a>
+					<a href="https://visitbusan.net/index.do?menuCd=DOM_000000602002001000&uc_seq=1141&lang_cd=cnb&pagingParms=4ca15f3a76a21f554a6e515f5344f50c4f734814d27260977c0eb574b1e0019a33f5a8e2dd587a9efb82cc91cf112987488312a3bc08c3054da8c190c930f6592e7894a7ed3cf4243291b2529527de050aa608ee54ad79feb8b43e0becf2aedf306446a26175f37928b2e64d297ab48f8acfae3743ce2794ef15d99eb79334136e6112e649197131b1b4fe56c057ddfe064a5c73bc02c14fb59a37c423e37c297a1704be4d498a3e09420375b34e9f2510a1cc4d716862ae99920a8a5762c6aff936514780824114ac8b626a1b97303c736314eea007010640393713f3fccf48efe24999cfdc85bb85247989a7b565c19b33615a8e59ae578b85b5409ad6409d01156f49b355793c7c752151a3250f6895328bb4716fee27699d245d633c3df9d5feb56fc55ed661304461dd2fe2347c7e0a091bf0ed519e66190d61fc7e82cd8779a07e7091ff8a29ba32518c6e4a2f7fb08ef147d12334be6dac9def6e602cb382a288e0e13a476fcce76c07785c7cf415d6f84921d4d265deb616df40dc45be5e992c2d4e82641d1162314bfa6fb6b52a5e60bc817cc27abe127b4ac70f61cf07a756f83c590285f2a7f8a42a93c514a1c0b69dd394ab3680de63b1ecd3527d5977f1be115b1d7625793d50b5c5826ff8b542602bf079c990e1d79101c00403fccdd8d0f971fdfaabfea64a12ae224bda45a84ac12ddec529db042b1af54b0e8d8fa690264dd7f528556d5991d238682cf605701f444b523f98263f27eb547d606cb13013f4684fb8e096d227c5175d8415beb6db12667590c88bf3612df221ded307eae24bddc823ef3f4706034f5361a201c85ee039" target="_blank" class="link-btn info-btn">📍 太宗台礫石海灣</a>
+				</div>
+            </div>
+            
+            <div class="attraction">
+                <h4>🪂 太宗台高空滑索</h4>
+                <p>刺激的高空滑索體驗，從高處滑下可欣賞壯觀海景。需提早預約，風大時可能暫停營運。</p>
+                <div class="links">
+                    <a href="https://naver.me/G4WoONAG" target="_blank" class="link-btn naver-btn">📍 Naver地圖</a>
+					<a href="https://maps.app.goo.gl/u77h9BspjFFjzWki9" target="_blank" class="link-btn naver-btn">📍 Google地圖</a>
+					<a href="https://www.visitbusan.net/index.do?menuCd=DOM_000000602008001000&uc_seq=1942&lang_cd=cnb" target="_blank" class="link-btn info-btn">📍 景點介紹</a>
+                </div>
+            </div>
+            
+			 <div class="attraction">
+                <h4>🍙 影島海女村</h4>
+                <p>釜山影島海鮮餐廳推間這家位於「影島海女文化展示館」一樓的《影島海女村》，不僅能用平價價格品嚐海女捕捉的新鮮海鮮，戶外座位區還有無敵海景，是視覺味覺的雙重享受，《影島海女村》菜單推薦必點海鮮拉麵、韓式飯捲，老饕還教了隱藏版吃法變化出海膽飯捲！</p>
+                <div class="links">
+                    <a href="https://naver.me/GmbgCKUS" target="_blank" class="link-btn naver-btn">📍 Naver地圖</a>
+					<a href="https://maps.app.goo.gl/sMoNXuCkxmwQh68m8" target="_blank" class="link-btn naver-btn">📍 Google地圖</a>
+					<a href="https://tenjo.tw/yeongdo-haenyeo-village/" target="_blank" class="link-btn info-btn">📍 景點介紹</a>
+                </div>
+            </div>
+			
+			<div class="attraction">
+                <h4>🌊 絕影海岸線</h4>
+                <p>位於釜山影島瀛仙洞，太宗台入口處的絕影海岸散步路是從南港洞的管理事務所出發，經過中里港、甘地海邊路,與太宗台連接的約3千米長的海岸路。</p>
+                <div class="links">
+                    <a href="https://naver.me/xY4sIC7V" target="_blank" class="link-btn naver-btn">📍 Naver地圖</a>
+					<a href="https://maps.app.goo.gl/2Cnk8DS6rx6dZnfi8" target="_blank" class="link-btn naver-btn">📍 Google地圖</a>
+					<a href="https://www.visitbusan.net/index.do?menuCd=DOM_000000603011001000&uc_seq=254&lang_cd=cnb&pagingParms=4ca15f3a76a21f554a6e515f5344f50c4f734814d27260977c0eb574b1e0019a33f5a8e2dd587a9efb82cc91cf112987488312a3bc08c3054da8c190c930f6592e7894a7ed3cf4242dbc029f9907d347080579d52e744a27a29e392da0f4081787f6793b385d744e306446a26175f379c12f7837f7e9193c0beb3e305d7220d215d4c7a189301348825724065a7138b4a487e679bc7acdb25bbb2d7c1f5176bd5e9e65d0e12f5648eb1c2e6d2bd352d38701ca758113deab0e1bcd425b236578aa3841ef107d44d507d14dba2f38f27073ae1578a4858775d75537b39410af393748763091f2c11f9de9b2dcc1554a326242d2505ff463a634757c4ad1fb5316c17e3c6c881b1202936a9591f574a9b48dd971a077cab36560b498a3642a0c2b54685de106a979027a6fb5c7bf90a1c8bf926b7a8e82fc894b6ec33d0e2cede1561799c675a8a0c319710a769e0c28b8c45d8c03f83eea56bf4cb3fa3bc9df7096b3ce3b0e56185f69655e48ce93039379e48fb2f4c61040db82aa2306d3eaf0df27eebd476a583d7cc9a19b8b7297eaf7b84d141e0ee132fdfe8dc3e7da65ea4556e05681e3de930079e6c043e4f7de36dbe6d168ad1ed90faa11666d4d0557b743152de8393d7b85f2a7f8a42a93c514a1c0b69dd394ab3680de63b1ecd3527d5977f1be115b1d7625793d50b5c5826ff8b542602bf079c990e1d79101c00403fccdd8d0f971fdfaabfea64a12ae224bda45a84ac12ddec529db042b1af54b0e8d8fa690264dd7f528556d5991d238682cf605701f444b523f98263f27eb547d606cb13013f4684fb8e096d227c5175d8415beb6db12667590c88bf3612df221ded307eae24bddc823ef3f4706034f7a295aa4207f8a01" target="_blank" class="link-btn info-btn">📍 景點介紹</a>
+					<a href="https://naver.me/FeX2cgpc" target="_blank" class="link-btn info-btn">📍 天空展望台</a>
+				</div>
+            </div>
+			
+            <div class="attraction">
+                <h4>🗼 龍頭山公園 & 釜山塔</h4>
+                <p>釜山的地標建築，登上釜山塔(鑽石塔)可360度俯瞰釜山市區和港口美景，是釜山必訪景點。</p>
+                <div class="links">
+                    <a href="https://naver.me/xAFCXBOE" target="_blank" class="link-btn naver-btn">📍 龍頭山公園(Naver地圖)</a>
+                    <a href="https://naver.me/GbDFYSR5" target="_blank" class="link-btn naver-btn">📍 釜山塔(Naver地圖)</a>
+                </div>
+            </div>
+			
+			<div class="attraction">
+                <h4>🍖 83燒肉</h4>
+                <p>釜山83烤肉(83Haechi/83獬豸/83해치)是釜山西面人氣很高的烤肉店！</p>
+                <div class="links">
+                    <a href="https://naver.me/G58gLMg2" target="_blank" class="link-btn naver-btn">📍 Naver地圖</a>
+					<a href="https://maps.app.goo.gl/5BR5x7aZYrQBjBiC7" target="_blank" class="link-btn naver-btn">📍 Google地圖</a>
+					<a href="https://yukigo.tw/83haechi/" target="_blank" class="link-btn info-btn">📍 餐廳介紹</a>
+                </div>
+            </div>
+			
+			<div class="attraction">
+                <h4>🛍️ 樂天超市 光復店</h4>
+                <div class="links">
+                    <a href="https://naver.me/FlZns9hH" target="_blank" class="link-btn naver-btn">📍 Naver地圖</a>
+					<a href="https://maps.app.goo.gl/29iw85uid3um1FeB8" target="_blank" class="link-btn naver-btn">📍 Google地圖</a>
+					<a href="https://www.bigfang.tw/blog/post/lotte-mart-nampo-busan" target="_blank" class="link-btn info-btn">📍 景點介紹</a>
+                </div>
+            </div>
+        </div>
+        
+        <div id="day5" class="tab-content">
+            <h2 class="day-title">Day 5 - 7/13 (日) 五六島 & 購物</h2>
+            
+            <div class="schedule">
+                <h4>📅 今日行程路線</h4>
+                <div class="route">
+                    <span class="route-item">五六島</span>
+                    <span class="arrow">→</span>
+                    <span class="route-item">二妓台</span>
+                    <span class="arrow">→</span>
+                    <span class="route-item">廣安里</span>
+                    <span class="arrow">→</span>
+                    <span class="route-item">新世界百貨</span>
+                </div>
+            </div>
+			
+            <div class="attraction">
+                <h4>🐖 嚴湧帛豬肉湯飯</h4>
+                <p>釜山最美的海岸景點之一，天空步道懸掛在海上，可欣賞壯觀的海景和奇岩怪石。開放時間09:00-18:00，惡劣天氣時不開放。</p>
+                <div class="links">
+                    <a href="https://naver.me/xIeXnv1r" target="_blank" class="link-btn naver-btn">📍 Naver地圖</a>
+					<a href="https://maps.app.goo.gl/VUh8atMoawKHSQFZ7" target="_blank" class="link-btn naver-btn">📍 Google地圖</a>
+                    <a href="https://couplehuang.com/eomyongbaek/" target="_blank" class="link-btn info-btn">📍 餐廳介紹</a>
+                </div>
+            </div>
+			
+            <div class="attraction">
+                <h4>🌅 五六島天空步道</h4>
+                <p>釜山最美的海岸景點之一，天空步道懸掛在海上，可欣賞壯觀的海景和奇岩怪石。開放時間09:00-18:00，惡劣天氣時不開放。</p>
+                <div class="links">
+                    <a href="https://naver.me/F1rxAW4r" target="_blank" class="link-btn naver-btn">📍 Naver地圖</a>
+					<a href="https://maps.app.goo.gl/AesW928eysfKVujC7" target="_blank" class="link-btn naver-btn">📍 Google地圖</a>
+                    <a href="https://anise.tw/273740" target="_blank" class="link-btn info-btn">📍 景點介紹</a>
+                </div>
+            </div>
+            
+            <div class="attraction">
+                <h4>🌊 五六島遊覽船</h4>
+                <p>約1小時的海上遊覽，可從海上欣賞五六島的美麗景色和獨特地形。需注意天氣狀況，風浪大時可能取消航班。</p>
+                <div class="links">
+                     <a href="https://naver.me/xX7OGAV6" target="_blank" class="link-btn naver-btn">📍 Naver地圖</a>
+					<a href="https://maps.app.goo.gl/3tBFBKMEbat91T719" target="_blank" class="link-btn naver-btn">📍 Google地圖</a>
+					<a href="https://www.visitbusan.net/index.do?menuCd=DOM_000000602008001000&uc_seq=401&lang_cd=cnb&pagingParms=4ca15f3a76a21f554a6e515f5344f50c4f734814d27260977c0eb574b1e0019a33f5a8e2dd587a9efb82cc91cf112987488312a3bc08c3054da8c190c930f6592e7894a7ed3cf42462fd961cb9cb0b660aa608ee54ad79feb8b43e0becf2aedf306446a26175f37928b2e64d297ab48f8acfae3743ce2794ef15d99eb79334136e6112e649197131b1b4fe56c057ddfe064a5c73bc02c14fb59a37c423e37c297a1704be4d498a3e09420375b34e9f2510a1cc4d716862ae99920a8a5762c6af9ac22ac176c2b66e11a8d44eef418bbb4682048b5866c22bb084a7b3ef9af878e2d437f6474b3f70ab366ceee0154e358b4f29de7bede36cac8b626a1b97303c736314eea00701065242d8042393989fefe24999cfdc85bb85247989a7b565c188b966678b37848e0d88865602a9ecd47a7ddf1406d80269895b9386fc9d120b54685de106a979027a6fb5c7bf90a1c8bf926b7a8e82fc894b6ec33d0e2cede1f9b0a88b6fca32c1431231fd2a39cac331bb432934a92cf6e6aad5dacce9f91679e0f167d0d79c3b59fcceeb7ed9a0cef2faaff2d3b87264367815c9f53c4f4ecbcb9d36a6045c9af35aa804d431440056418513af49517f4f79a55315722b93a340492d7be20285a25a5b31fe1498aaeb03980cb1031e10ebb655c00d31ed989ab7e55241a36293fc96a4aafe87e4f8d53c47b399853c6798bf07a3ef3af7230dfd5896ce340c4644d5bccb845f32c279d18f1f9cdc65713d7871231c2484183e655d5773e51e693157b6c8457fb14e1f1d7fc555f24c310e1b1fc3bb2ec3b8537e5c3c41ffde2f06bca9b29a52f3a820c30f9ef9ab393b9616c46fbc6ef5fd78ff334e3df20c860299b60aa334a70c5e98c1bf20a59ae3172de4ddb7c6306d39f9c46f407cb63c04889abd5e8e45f32f7e32b705a0ef89" target="_blank" class="link-btn info-btn">📍 景點介紹</a>
+                </div>
+            </div>
+            
+            <div class="attraction">
+                <h4>🏔️ 二妓台海岸散步路</h4>
+                <p>釜山著名的海岸散步道，可欣賞海蝕洞窟和壺穴地形等特殊地質景觀，是自然愛好者的天堂。</p>
+                <div class="links">
+                     <a href="https://naver.me/FHlP3v2q" target="_blank" class="link-btn naver-btn">📍 Naver地圖</a>
+					<a href="https://maps.app.goo.gl/QauFgZ5Tg6FJAkzB8" target="_blank" class="link-btn naver-btn">📍 Google地圖</a>
+					<a href="https://anise.tw/273740#%E4%BA%8C%E5%A6%93%E5%8F%B0%E6%B5%B7%E5%B2%B8%E6%95%A3%E6%AD%A5%E8%B7%AF%E7%B7%9A" target="_blank" class="link-btn info-btn">📍 景點介紹</a>
+                </div>
+            </div>
+            
+			<div class="attraction">
+                <h4>🐟 Jinmi Hoetjip</h4>
+                <p>진미횟집是位於 廣安里海灘附近的一家營業有20年的海鮮餐廳，主要販售 韓式 生魚片（刺身），刺身以釜山當地的新鮮海產為主，是一家面廣安里海灘的餐廳。</p>
+                <div class="links">
+                     <a href="https://naver.me/54LIhs5R" target="_blank" class="link-btn naver-btn">📍 Naver地圖</a>
+					<a href="https://maps.app.goo.gl/r5pCSocmw9ziVh1ZA" target="_blank" class="link-btn naver-btn">📍 Google地圖</a>
+					<a href="https://lizzzstyle.tw/jinmi-hoetjip/" target="_blank" class="link-btn info-btn">📍 餐廳介紹</a></div>
+            </div>
+			
+			<div class="attraction">
+                <h4>🛍️ ️廣安里街區商圈</h4>
+                <p>位於廣安里海邊、面向廣安大橋的河畔區，2022 年打造為結合餐飲、咖啡、街頭表演、文創與時尚商店的複合文化空間。</p>
+                <div class="links">
+                    <a href="https://naver.me/Fuz5ZqYE" target="_blank" class="link-btn naver-btn">📍 Naver地圖</a>
+					<a href="https://maps.app.goo.gl/sqyhpNxxFYbofQ4B9" target="_blank" class="link-btn naver-btn">📍 Google地圖</a>
+					<a href="https://alinalife.tw/millac-the-market/" target="_blank" class="link-btn info-btn">📍 景點介紹</a>
+                </div>
+            </div>
+			
+            <div class="attraction">
+                <h4>🛍️ 新世界百貨海雲台店</h4>
+                <p>釜山高級購物中心，營業時間10:30-20:30，有各種國際品牌和韓國品牌，是購物的好去處。</p>
+                <div class="links">
+                    <a href="https://naver.me/5chuGOAf" target="_blank" class="link-btn naver-btn">📍 Naver地圖</a>
+					<a href="https://maps.app.goo.gl/WYRmtgkPj6uR68DZ7" target="_blank" class="link-btn naver-btn">📍 Google地圖</a>
+					<a href="https://www.bigfang.tw/blog/post/lotte-mart-nampo-busan" target="_blank" class="link-btn info-btn">📍 景點介紹</a>
+                </div>
+            </div>
+			
+			<div class="attraction">
+                <h4>🍚 Handasot</h4>
+                <p>這間是小紅書爆紅的廣安里美食「Handasot 韓多鍋總店」，也是知名的釜山釜飯專賣店，海雲台那邊也有一間分店，而我們吃的是廣安里的總店，逢用餐期間排隊人潮總是滿滿，建議先用catch table登記遠端候位，就不用等太久，點餐是自助式平板，也有中文菜單，必吃的有蟹肉釜飯跟牛排釜飯等等，附上精緻的四宮格小菜，加點的烤魚跟烤鮑魚也相當好吃! </p>
+                <div class="links">
+                    <a href="https://naver.me/GlJIDiWD" target="_blank" class="link-btn naver-btn">📍 Naver地圖</a>
+					<a href="https://maps.app.goo.gl/Z1nZBCCwAMTyxbzw5" target="_blank" class="link-btn naver-btn">📍 Google地圖</a>
+					<a href="https://sansalife.tw/handasot/" target="_blank" class="link-btn info-btn">📍 景點介紹</a>
+					<a href="https://www.catchtable.net/shop/handasot_busan?type=REMOTE_WAITING_GLOBAL" target="_blank" class="link-btn info-btn">📍 預約網站</a>
+                </div>
+            </div>
+			
+			<div class="attraction">
+                <h4>🦑 螞蟻家辣炒章魚</h4>
+                <p>螞蟻家是釜山相當知名的「낙지볶음」（炒章魚）專門店，在南浦洞及海雲台都有分店，尤以國際市場本店歷史悠久，深受當地人和旅客喜愛。 </p>
+                <div class="links">
+                    <a href="https://naver.me/I55a64il" target="_blank" class="link-btn naver-btn">📍 Naver地圖</a>
+					<a href="https://maps.app.goo.gl/ctE5mgMS48CX8SYn8" target="_blank" class="link-btn naver-btn">📍 Google地圖</a>
+					<a href="https://lizzzstyle.tw/gaemijip/" target="_blank" class="link-btn info-btn">📍 景點介紹</a>
+                </div>
+            </div>
+			<div class="attraction">
+                <h4>🍖 釜山烤肋排</h4>
+                <p>招牌必吃就是炭燒豬肋排，還有鹽燒、BBQ口味可以選擇。炭火上翻滾的豬肋排，散發出誘人的香氣，讓人食指大動，很適合愛大口吃肉的朋友來報到唷～</p>
+                <div class="links">
+                    <a href="https://naver.me/5PVaSE2z" target="_blank" class="link-btn naver-btn">📍 Naver地圖</a>
+					<a href="https://maps.app.goo.gl/TCo1FvzWgLQ32ia2A" target="_blank" class="link-btn naver-btn">📍 Google地圖</a>
+					<a href="https://www.bigfang.tw/blog/post/busan-kissykissy-ribs" target="_blank" class="link-btn info-btn">📍 景點介紹</a>
+                </div>
+            </div>
+        </div>
+        
+        <div id="day6" class="tab-content">
+            <h2 class="day-title">Day 6 - 7/14 (一) 離別釜山</h2>
+            
+            <div class="schedule">
+                <h4>📅 今日行程路線</h4>
+                <div class="route">
+                    <span class="route-item">旅館</span>
+                    <span class="arrow">→</span>
+                    <span class="route-item">南浦洞早餐</span>
+                    <span class="arrow">→</span>
+                    <span class="route-item">金海機場</span>
+                    <span class="arrow">→</span>
+                    <span class="route-item">桃園機場</span>
+                </div>
+            </div>
+            
+            <div class="attraction">
+                <h4>🥪 Egg Drop 南浦洞店</h4>
+                <p>韓國知名早餐連鎖店，以美味的雞蛋三明治聞名。營業時間08:00-19:00，是離開釜山前的完美早餐選擇。</p>
+               <div class="links">
+                    <a href="https://naver.me/FN7XZFRx" target="_blank" class="link-btn naver-btn">📍 Naver地圖</a>
+					<a href="https://maps.app.goo.gl/MBsNV3yeK2hK1qj86" target="_blank" class="link-btn naver-btn">📍 Google地圖</a>
+					<a href="https://www.bigfang.tw/blog/post/eggdrop-nampo-busan" target="_blank" class="link-btn info-btn">📍 餐廳介紹</a>
+                </div>
+            </div>
+            
+            <div class="attraction">
+                <h4>🍲 崔氏大排骨醒酒湯</h4>
+                <p>24小時營業的傳統韓式湯品店，如果時間充裕可以品嚐正宗的韓式醒酒湯作為旅程的完美結束。</p>
+                <div class="links">
+                    <a href="https://naver.me/IGJyJ6qH" target="_blank" class="link-btn naver-btn">📍 Naver地圖</a>
+					<a href="https://maps.app.goo.gl/BES5garyUbvJeZPU6" target="_blank" class="link-btn naver-btn">📍 Google地圖</a>
+					<a href="https://www.instagram.com/kwife_fun_korea_travel/reel/DBJaKoLiz7Y/" target="_blank" class="link-btn info-btn">📍 餐廳介紹</a>
+                </div>
+            </div>
+            
+            <div class="attraction">
+                <h4>✈️ 釜山金海國際機場</h4>
+                <p>搭乘大韓航空KE2249班機，09:00起飛返回台灣。建議提前2小時到達機場辦理登機手續。</p>
+                <div class="links">
+                    <a href="https://map.naver.com/v5/search/김해공항" target="_blank" class="link-btn naver-btn">📍 Naver地圖</a>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <script>
+        // 頁籤切換功能
+        function showTab(evt, tabName) {
+            // 隱藏所有內容
+            var tabcontent = document.getElementsByClassName("tab-content");
+            for (var i = 0; i < tabcontent.length; i++) {
+                tabcontent[i].classList.remove("active");
+            }
+            
+            // 移除所有按鈕的active類別
+            var tablinks = document.getElementsByClassName("tab");
+            for (var i = 0; i < tablinks.length; i++) {
+                tablinks[i].classList.remove("active");
+            }
+            
+            // 顯示選中的內容並設置按鈕為active
+            var selectedTab = document.getElementById(tabName);
+            if (selectedTab) {
+                selectedTab.classList.add("active");
+            }
+            
+            if (evt && evt.currentTarget) {
+                evt.currentTarget.classList.add("active");
+            }
+        }
+        
+        // 頁面加載完成後初始化
+        document.addEventListener('DOMContentLoaded', function() {
+            // 確保Day 1是默認顯示的
+            var day1Tab = document.getElementById('day1');
+            var firstTabButton = document.querySelector('.tab');
+            
+            if (day1Tab) {
+                day1Tab.classList.add('active');
+            }
+            
+            if (firstTabButton) {
+                firstTabButton.classList.add('active');
+            }
+        });
+        
+        // 添加平滑滾動效果
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                }
+            });
+        });
+    </script>
+</body>
+</html>
